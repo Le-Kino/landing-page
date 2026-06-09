@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LeKino — Organisme à but non lucratif dédié à la promotion de la santé et du plaisir de bouger au Québec. Nonprofit promoting healthy habits and physical activity in Quebec." />
+  <title>LeKino — Bouger ensemble / Moving Together</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:     #C1272D;
+      --red-dark:#991f24;
+      --white:   #FFFFFF;
+      --off-white: #F8F6F3;
+      --text:    #1A1A1A;
+      --muted:   #555555;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(193,39,45,0.97);
+      backdrop-filter: blur(4px);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-lang {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--red);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      color: var(--white);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 14vw, 10rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 300;
+      opacity: 0.9;
+      max-width: 560px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline-en {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 300;
+      opacity: 0.6;
+      max-width: 560px;
+      font-style: italic;
+    }
+
+    .hero-scroll {
+      margin-top: 3rem;
+      opacity: 0.5;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .bilingual-block p:first-child {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .bilingual-block p.en {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+      border-left: 2px solid var(--red);
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* ── MISSION FULL-WIDTH ── */
+    .mission-band {
+      background: var(--off-white);
+      padding: 5rem 2rem;
+    }
+
+    .mission-band > div {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── VALUES ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .value-card {
+      background: var(--off-white);
+      border-top: 3px solid var(--red);
+      padding: 1.5rem 1.25rem;
+      border-radius: 2px;
+    }
+
+    .value-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .value-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── KINOVEMBER ── */
+    .kino-band {
+      background: var(--text);
+      color: var(--white);
+      padding: 5rem 2rem;
+    }
+
+    .kino-band > div {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .kino-band .section-label {
+      color: var(--red);
+    }
+
+    .kino-band h2 {
+      color: var(--white);
+    }
+
+    .kino-band .bilingual-block p:first-child {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .kino-band .bilingual-block p.en {
+      color: rgba(255,255,255,0.5);
+      border-left-color: var(--red);
+    }
+
+    .kino-stat-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .kino-stat {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .kino-stat .number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .kino-stat .label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.25rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--red-dark);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    footer .domain-note {
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero h1 { letter-spacing: -1px; }
+      .kino-stat-row { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">LeKino</span>
+    <span class="nav-lang">FR / EN</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Organisme à but non lucratif · Nonprofit Organization · Québec</p>
+    <h1>LeKino</h1>
+    <p class="hero-tagline">Bouger ensemble, pour le plaisir.</p>
+    <p class="hero-tagline-en">Moving together, for the joy of it.</p>
+    <p class="hero-scroll">↓</p>
+  </section>
+
+  <!-- MISSION -->
+  <div class="mission-band">
+    <div>
+      <p class="section-label">Mission</p>
+      <h2>Promouvoir la santé par le mouvement et la communauté.</h2>
+      <div class="bilingual-block">
+        <p>
+          LeKino est un organisme à but non lucratif dont la mission est de promouvoir
+          des habitudes de vie saines et le plaisir de bouger à travers des événements
+          rassembleurs, la camaraderie et la motivation collective — partout au Québec.
+        </p>
+        <p class="en">
+          LeKino is a nonprofit organization whose mission is to promote healthy habits
+          and the joy of physical activity through community events, friendship, and
+          collective motivation — across Quebec.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <section>
+    <p class="section-label">Valeurs · Values</p>
+    <h2>Ce qui nous guide.</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Plaisir · Joy</h3>
+        <p>Bouger devrait être un plaisir, pas une obligation.</p>
+      </div>
+      <div class="value-card">
+        <h3>Inclusivité · Inclusion</h3>
+        <p>Tout le monde est bienvenu, peu importe le niveau.</p>
+      </div>
+      <div class="value-card">
+        <h3>Prévention · Prevention</h3>
+        <p>Des habitudes aujourd'hui pour une meilleure santé demain.</p>
+      </div>
+      <div class="value-card">
+        <h3>Qualité · Quality</h3>
+        <p>Des événements bien faits, avec soin et ambition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KINOVEMBER -->
+  <div class="kino-band">
+    <div>
+      <p class="section-label">Projet phare · Core Project</p>
+      <h2>Kinovember</h2>
+      <div class="bilingual-block">
+        <p>
+          Le Kinovember est notre défi sportif annuel qui invite les communautés
+          universitaires québécoises à rester actives en novembre. Des équipes de
+          6 à 8 personnes, formées par programme d'études, accumulent des points
+          en pratiquant des activités physiques tout au long du mois. Né en 2020,
+          l'événement rassemble maintenant des milliers de participant·es chaque
+          année à travers de multiples campus au Québec.
+        </p>
+        <p class="en">
+          Kinovember is our annual fitness challenge that invites Quebec university
+          communities to stay active throughout November. Teams of 6–8 students,
+          formed by study program, earn points for any physical activity over the
+          month. Founded in 2020, it now engages thousands of participants each
+          year across multiple campuses in Quebec.
+        </p>
+      </div>
+      <div class="kino-stat-row">
+        <div class="kino-stat">
+          <div class="number">2020</div>
+          <div class="label">Fondé · Founded</div>
+        </div>
+        <div class="kino-stat">
+          <div class="number">1000+</div>
+          <div class="label">Participant·es chaque année</div>
+        </div>
+        <div class="kino-stat">
+          <div class="number">Multi</div>
+          <div class="label">Campus à travers le Québec</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>LeKino</strong> — Organisme à but non lucratif enregistré au Québec</p>
+    <p style="margin-top:0.5rem">
+      lekino.ca est le domaine officiel de l'organisme LeKino.
+      <br />lekino.ca is the official domain of the LeKino nonprofit organization.
+    </p>
+    <p class="domain-note">
+      LeKino organise notamment le Kinovember, défi sportif annuel dans les universités québécoises.
+    </p>
+  </footer>
+
+</body>
+</html>
