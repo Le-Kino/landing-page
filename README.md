@@ -10,18 +10,7 @@ Pure HTML + CSS — no build step, no dependencies (except Google Fonts via CDN)
 
 ## Contributing
 
-Edit `index.html` directly. Push to `main` → GitHub Pages deploys automatically.
-
-## DNS
-
-`lekino.ca` points to GitHub Pages via A records:
-
-```
-A  @  185.199.108.153
-A  @  185.199.109.153
-A  @  185.199.110.153
-A  @  185.199.111.153
-```
+Edit `index.html` directly. Push to `production` → GitHub Pages deploys automatically.
 
 ---
 
